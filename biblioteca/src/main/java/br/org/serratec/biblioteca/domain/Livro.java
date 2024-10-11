@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Livro extends Publicacao{
@@ -17,8 +18,9 @@ public class Livro extends Publicacao{
 	@Column(name = "id_livro")
 	private Long id;
 
-	@NotBlank(message = "O livro precisa conter um título")
 	@Column(nullable = false)
+	@NotBlank(message = "O livro precisa conter um título")
+	@Size(min = 2, max = 200, message = "O título do livro deve conter entre {min} e {max} de caracteres")
 	private String titulo;
 
 	@Column
