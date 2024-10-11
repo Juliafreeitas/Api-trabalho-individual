@@ -1,10 +1,10 @@
-package br.org.serratec.julia;
+package br.org.serratec.biblioteca;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JuliaApplicationTests {
+class BibliotecaApplicationTests {
 
 	@Test
 	void contextLoads() {

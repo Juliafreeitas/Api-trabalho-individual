@@ -1,13 +1,13 @@
-package br.org.serratec.julia;
+package br.org.serratec.biblioteca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JuliaApplication {
+public class BibliotecaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JuliaApplication.class, args);
+		SpringApplication.run(BibliotecaApplication.class, args);
 	}
 
 }
