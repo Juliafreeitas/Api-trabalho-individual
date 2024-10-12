@@ -3,15 +3,16 @@ package br.org.serratec.biblioteca.domain;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
-public class Livro extends Publicacao{
+public class Livro {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +21,14 @@ public class Livro extends Publicacao{
 
 	@Column(nullable = false)
 	@NotBlank(message = "O livro precisa conter um título")
-	@Size(min = 2, max = 200, message = "O título do livro deve conter entre {min} e {max} de caracteres")
 	private String titulo;
 
 	@Column
 	private Integer qtdPaginas;
+
+	@Embedded
+	@Valid
+	private Publicacao publicacao;
 
 	public Long getId() {
 		return id;
@@ -48,6 +52,14 @@ public class Livro extends Publicacao{
 
 	public void setQtdPaginas(Integer qtdPaginas) {
 		this.qtdPaginas = qtdPaginas;
+	}
+
+	public Publicacao getPublicacao() {
+		return publicacao;
+	}
+
+	public void setPublicacao(Publicacao publicacao) {
+		this.publicacao = publicacao;
 	}
 
 	@Override

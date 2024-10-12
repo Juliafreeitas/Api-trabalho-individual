@@ -3,26 +3,20 @@ package br.org.serratec.biblioteca.domain;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
-@MappedSuperclass
+@Embeddable
 public class Publicacao {
 
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false)
 	@NotBlank(message = "O livro precisa conter um autor")
-	@Size(min = 2, max = 50, message = "O nome do autor deve conter entre {min} e {max} de caracteres")
 	private String autor;
 
 	@Column
-	@Temporal(TemporalType.DATE)
 	private LocalDate dataPublicacao;
 
-	@Column(length = 50)
-	@Size(min = 2, max = 50, message = "O nome da editora deve conter entre {min} e {max} de caracteres")
+	@Column
 	private String editora;
 
 	public String getAutor() {
